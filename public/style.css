@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    color: #1e88e5; 
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    background-color: #1e88e5; 
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1565c0; 
+}
+
+/* Campos obrigatórios */
+input:required {
+    border-left: 3px solid #1e88e5;
+}
+
+
+
+/* Novos estilos */
+.filtros {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+    text-decoration: none;
+    color: #333;
+}
+
+.tab.active {
+    background-color: #1e88e5;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f5f5f5;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+.actions {
+    white-space: nowrap;
+}
+
+.button.small {
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.button.danger {
+    background-color: #e53935;
+}
+
+.button.danger:hover {
+    background-color: #c62828;
+}
+
+/* Estilo para o formulário de edição */
+.container form {
+    max-width: 600px;
+    margin: 0 auto;
+}

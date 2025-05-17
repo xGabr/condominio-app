@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Moradores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Moradores</h1>
+        <form action="/cadastrar" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome *</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="documento">Documento</label>
+                <input type="text" id="documento" name="documento">
+            </div>
+            
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <!-- Adicione este campo ao formulário -->
+<div class="form-group">
+    <label for="data_entrada">Data de Entrada *</label>
+    <input type="date" id="data_entrada" name="data_entrada" required>
+</div>
+
+<div class="form-group">
+    <label for="tipo">Tipo *</label>
+    <select id="tipo" name="tipo" required>
+        <option value="Morador">Morador</option>
+        <option value="Airbnb">Airbnb</option>
+        <option value="Charlie">Charlie</option>
+    </select>
+</div>
+            
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

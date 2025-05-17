@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Morador</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Morador</h1>
+        
+        <form action="/moradores/editar/<%= morador.id %>" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome *</label>
+                <input type="text" id="nome" name="nome" value="<%= morador.nome %>" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="documento">Documento</label>
+                <input type="text" id="documento" name="documento" value="<%= morador.documento %>">
+            </div>
+            
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" value="<%= morador.telefone %>">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<%= morador.email %>">
+            </div>
+            
+            <div class="form-group">
+                <label for="tipo">Tipo *</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="Morador" <%= morador.tipo === 'Morador' ? 'selected' : '' %>>Morador</option>
+                    <option value="Airbnb" <%= morador.tipo === 'Airbnb' ? 'selected' : '' %>>Airbnb</option>
+                    <option value="Charlie" <%= morador.tipo === 'Charlie' ? 'selected' : '' %>>Charlie</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="data_entrada">Data de Entrada *</label>
+                <input type="date" id="data_entrada" name="data_entrada" value="<%= morador.data_entrada %>" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="data_saida">Data de Saída</label>
+                <input type="date" id="data_saida" name="data_saida" value="<%= morador.data_saida %>">
+            </div>
+            
+            <button type="submit">Salvar Alterações</button>
+            <a href="/moradores" class="button">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

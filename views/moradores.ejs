@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Moradores</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Moradores</h1>
+        
+        <div class="filtros">
+            <form method="GET" action="/moradores">
+                <div class="form-group">
+                    <label for="tipo">Filtrar por tipo:</label>
+                    <select id="tipo" name="tipo">
+                        <option value="">Todos</option>
+                        <option value="Morador" <%= tipo === 'Morador' ? 'selected' : '' %>>Moradores</option>
+                        <option value="Airbnb" <%= tipo === 'Airbnb' ? 'selected' : '' %>>Airbnb</option>
+                        <option value="Charlie" <%= tipo === 'Charlie' ? 'selected' : '' %>>Charlie</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="busca">Buscar:</label>
+                    <input type="text" id="busca" name="busca" value="<%= busca || '' %>">
+                </div>
+                
+                <button type="submit">Aplicar Filtros</button>
+                <a href="/" class="button">Voltar ao Cadastro</a>
+            </form>
+        </div>
+        
+        <div class="tabs">
+            <a href="/moradores?tipo=Morador" class="tab <%= !tipo || tipo === 'Morador' ? 'active' : '' %>">Moradores</a>
+            <a href="/moradores?tipo=Airbnb" class="tab <%= tipo === 'Airbnb' ? 'active' : '' %>">Airbnb</a>
+            <a href="/moradores?tipo=Charlie" class="tab <%= tipo === 'Charlie' ? 'active' : '' %>">Charlie</a>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Documento</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Tipo</th>
+                    <th>Entrada</th>
+                    <th>Saída</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% moradores.forEach(morador => { %>
+                <tr>
+                    <td><%= morador.nome %></td>
+                    <td><%= morador.documento %></td>
+                    <td><%= morador.telefone %></td>
+                    <td><%= morador.email %></td>
+                    <td><%= morador.tipo %></td>
+                    <td><%= new Date(morador.data_entrada).toLocaleDateString() %></td>
+                    <td><%= morador.data_saida ? new Date(morador.data_saida).toLocaleDateString() : '-' %></td>
+                    <td class="actions">
+                        <a href="/moradores/editar/<%= morador.id %>" class="button small">Editar</a>
+                        <form action="/moradores/excluir/<%= morador.id %>" method="POST" style="display: inline;">
+                            <button type="submit" class="button small danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
